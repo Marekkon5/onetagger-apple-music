@@ -428,7 +428,7 @@ impl AutotaggerSourceBuilder for AppleMusicBuilder {
             name: "Apple Music".to_string(),
             description: "Apple Music apps, incl. lyrics, requires token.".to_string(),
             version: "1.0.0".to_string(),
-            icon: &[],
+            icon: include_bytes!("icon.png"),
             max_threads: 4,
             requires_auth: true,
             supported_tags: supported_tags!(Title, Artist, AlbumArtist, Album, Genre, AlbumArt, URL, Label, CatalogNumber, TrackId, ReleaseId, Duration,
