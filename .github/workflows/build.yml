@@ -1,0 +1,58 @@
+name: Build
+on: [push, pull_request]
+
+jobs:
+  build-linux:
+    name: Linux
+    # For glibc compatibility
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build
+      run: |
+        cargo build --release
+    
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-linux
+        path: target/release/*.so
+
+  build-windows:
+    name: Windows
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build
+      run: |
+        cargo build --release
+    
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-windows
+        path: target/release/*.dll
+
+  build-mac:
+    name: Mac
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build
+      run: |
+        cargo build --release
+    
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-mac
+        path: target/release/*.dylib
