@@ -426,7 +426,7 @@ impl AutotaggerSourceBuilder for AppleMusicBuilder {
         PlatformInfo {
             id: "apple_music".to_string(),
             name: "Apple Music".to_string(),
-            description: "Apple Music apps, incl. lyrics, requires token.".to_string(),
+            description: "Incl. album art up to 3000px, lyrics and more. Requires token".to_string(),
             version: "1.0.0".to_string(),
             icon: include_bytes!("icon.png"),
             max_threads: 4,
